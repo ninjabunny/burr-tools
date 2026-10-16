@@ -83,6 +83,7 @@ void cb_ImageExportVector_stub(Fl_Widget*, void*);
 void cb_STLExport_stub(Fl_Widget*, void*);
 void cb_StatusWindow_stub(Fl_Widget*, void*);
 void cb_Comment_stub(Fl_Widget*, void*);
+void cb_ExportSpec_stub(Fl_Widget*, void*);
 void cb_Config_stub(Fl_Widget*, void*);
 void cb_About_stub(Fl_Widget*, void*);
 void cb_CheckForUpdates_stub(Fl_Widget*, void*);

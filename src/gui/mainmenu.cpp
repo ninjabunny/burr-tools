@@ -90,6 +90,7 @@ namespace {
       { },
     { "&Puzzle",           0, 0, 0, FL_SUBMENU, 0, 0, 0, 0 },
       {"Edit Comment...",      0, cb_Comment_stub,            0, 0, 0, 0, 14, 56},
+      {"Export Burr/Box Spec", 0, cb_ExportSpec_stub,         0, 0, 0, 0, 14, 56},
       {"Convert...",           0, cb_Convert_stub,            0, 0, 0, 0, 14, 56},
       {"Import Assemblies...", 0, cb_AssembliesToShapes_stub, 0, FL_MENU_DIVIDER, 0, 0, 14, 56},
       {"Status",           FL_COMMAND + 'i', cb_StatusWindow_stub, 0, 0, 0, 0, 14, 56},

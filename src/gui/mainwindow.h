@@ -389,6 +389,7 @@ public:
   void cb_Help(void);
   void cb_Config(void);
   void cb_Coment(void);
+  void cb_ExportSpec(void);
   void cb_Toggle3D(void);
   void cb_SolProbSel(LBlockListGroup_c* reason);
 

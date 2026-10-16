@@ -64,6 +64,7 @@
 
 #include "../lib/ps3dloader.h"
 #include "../lib/voxel.h"
+#include "../lib/burrspec.h"
 #include "../lib/puzzle.h"
 #include "../lib/problem.h"
 #include "../lib/assembler.h"
@@ -1977,6 +1978,27 @@ void mainWindow_c::cb_Config(void) {
   config.dialog();
   puzzleHistory->setMaxUndo(config.undoDepth());
   activateConfigOptions();
+}
+
+void cb_ExportSpec_stub(Fl_Widget* /*o*/, void* v) { ((mainWindow_c*)v)->cb_ExportSpec(); }
+
+/* Copy the shape selected in the shape list to the clipboard as a burr/box
+ * spec in the bt2scad style: a JSON array with one string per z layer, rows
+ * separated by '|', 'x' for filled, 'v' for variable and '.' for empty,
+ * e.g. ["xxx|xxx"].
+ */
+void mainWindow_c::cb_ExportSpec(void) {
+
+  unsigned int sel = PcSel->getSelection();
+  if (sel >= puzzle->getNumberOfShapes()) {
+    fl_message("Select a shape first");
+    return;
+  }
+
+  const std::string spec = burrSpec(*puzzle->getShape(sel));
+
+  Fl::copy(spec.c_str(), (int)spec.size(), 1);
+  StatusLine->setText("Burr/box spec copied to clipboard");
 }
 
 void cb_Comment_stub(Fl_Widget* /*o*/, void* v) { ((mainWindow_c*)v)->cb_Coment(); }
